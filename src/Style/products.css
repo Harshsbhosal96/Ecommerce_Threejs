@@ -1,0 +1,33 @@
+.product_wrapper {
+    flex: 1;
+    position: relative;
+    z-index: 2;
+}
+
+.product {
+    font-size: 1rem;
+    position: relative;
+}
+
+.product-info {
+    position: relative;
+    display: none;
+}
+
+.product-info.active {
+    display: block;
+}
+
+.product_brand {
+    margin-bottom: 0;
+}
+
+.product_name {
+    margin-top: 0;
+}
+
+@media only screen and (min-width: 700px) {
+    .product_wrapper {
+        flex: .4;
+    }
+}
