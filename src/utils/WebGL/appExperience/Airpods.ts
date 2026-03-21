@@ -8,7 +8,7 @@ import { AnimateDirectionType, AnimationPagesType } from '../../gsapAnimations/t
 import Animation from '../../gsapAnimations';
 import AirpodsCompactment from './AirpodsCompactment';
 import { AnimateMethodProps } from './types';
-import World from './World';
+
 import Loading from './Loading';
 
 export default class Airpods {

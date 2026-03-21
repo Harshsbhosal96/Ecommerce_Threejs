@@ -7,7 +7,7 @@ import { sourcesDefaultNames } from './sources';
 import Airpods from './Airpods';
 import DepthOfFieldPostProcessing from './DepthOfFieldPostProcessing';
 import AirpodsCompactment from './AirpodsCompactment';
-import TransparentBackgroundPlane from './TransparentBackgroundPlane';
+
 import Loading from './Loading';
 
 

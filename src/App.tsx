@@ -61,7 +61,7 @@ function App() {
             <small>
               Designed by
             </small>
-          <a href="#">
+          <a href="#https://www.linkedin.com/in/harshvardhansb/">
   MonkHarshu
 </a>
           </span>
@@ -69,7 +69,7 @@ function App() {
             <span>
               Built with &#10084;&#65039; by
             </span>
-            <a href="https://www.linkedin.com/in/adeyanju-adeyemi-88b058235/">
+            <a href="https://www.linkedin.com/in/harshvardhansb//">
               Harshvardhan Bhosale
             </a>
           </span>

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React from 'react'
 import '../Style/footer.css'
 import productsData from '../dummyData'
 
