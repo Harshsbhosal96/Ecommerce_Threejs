@@ -5,12 +5,27 @@ import { ArrowUpRightIcon, ChartBarIcon } from '@heroicons/react/24/solid'
 import { Link } from 'react-router-dom';
 import GsapAnimations from '../utils/gsapAnimations'
 
-function HeaderNav() {
+interface HeaderNavProps {
+    userEmail: string;
+    isUserLoggedIn: boolean;
+    cartCount: number;
+    onLoginClick: () => void;
+    onLogoutClick: () => Promise<void>;
+    onCartClick: () => void;
+}
+
+function HeaderNav({
+    userEmail,
+    isUserLoggedIn,
+    cartCount,
+    onLoginClick,
+    onLogoutClick,
+    onCartClick,
+}: HeaderNavProps) {
     const animation = useRef<GsapAnimations | null>(null);
 
     const handleBackClick = () => {
         if (animation.current?.currentAnimationPage === 'ProductDetails') {
-            // The order matters
             animation.current.previousAnimationPage = 'ProductDetails';
             animation.current.currentAnimationPage = 'Product';
             animation.current.productDetails.hideComponent();
@@ -18,7 +33,6 @@ function HeaderNav() {
             animation.current.headerNav.showNavLinks();
             animation.current.footer.showPaginationIndex();
         } else if (animation.current?.currentAnimationPage === 'Compactments') {
-            // The order matters
             animation.current.previousAnimationPage = 'Compactments';
             animation.current.currentAnimationPage = 'ProductDetails';
             animation.current.productCompactment.hideComponent();
@@ -32,10 +46,11 @@ function HeaderNav() {
         animation.current?.headerNav.hamburgerClick(isOpen === "true" ? true : false);
         e.currentTarget.setAttribute("data-isopen", isOpen === "true" ? "false" : "true");
     }
+
     useEffect(() => {
         animation.current = new GsapAnimations();
-
     }, [])
+
     return (
         <header className='hover-effect reset'>
             <div className='nav_list_logo'>
@@ -88,6 +103,27 @@ function HeaderNav() {
                     </li>
                 </ul>
             </nav>
+
+            <div className='nav_actions'>
+                <button type='button' className='nav_action_button' onClick={onCartClick}>
+                    Cart
+                    <span className='nav_cart_badge'>{cartCount}</span>
+                </button>
+
+                {isUserLoggedIn ? (
+                    <div className='nav_account_summary'>
+                        <span className='nav_account_email'>{userEmail}</span>
+                        <button type='button' className='nav_action_button' onClick={onLogoutClick}>
+                            Logout
+                        </button>
+                    </div>
+                ) : (
+                    <button type='button' className='nav_action_button' onClick={onLoginClick}>
+                        Login
+                    </button>
+                )}
+            </div>
+
             <div onClick={handleBackClick} className='hover-effect arrowed_button nav_list_Back '>
                 <Link to="/">
                     <span>Back</span>

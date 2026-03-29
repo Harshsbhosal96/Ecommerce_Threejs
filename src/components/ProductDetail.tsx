@@ -1,17 +1,19 @@
 import { ArrowUpRightIcon } from '@heroicons/react/24/solid'
-import React, { useMemo, useEffect, useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
-import productsData from '../dummyData'
 import '../Style/productDetails.css'
 import GsapAnimations from '../utils/gsapAnimations'
+import { ProductDataType } from '../types/store'
 
 interface propsTypes {
     activeProductIndex: number
+    activeProduct: ProductDataType
+    onAddToCart: (product: ProductDataType) => void
+    onOpenCart: () => void
 }
 
-function ProductDetail({ activeProductIndex }: propsTypes) {
+function ProductDetail({ activeProduct, onAddToCart, onOpenCart }: propsTypes) {
     const animation = useRef<GsapAnimations | null>(null);
-    const product = useMemo(() => productsData[activeProductIndex], [activeProductIndex]);
 
     const handleOnClick = () => {
         animation.current!.previousAnimationPage = "ProductDetails"
@@ -25,8 +27,8 @@ function ProductDetail({ activeProductIndex }: propsTypes) {
 
     return (
         <div className="product_detail_wrapper">
-            <h1 className='product_detail_brand'>{product.brand}</h1>
-            <h2 className='product_detail_name'>{product.name}</h2>
+            <h1 className='product_detail_brand'>{activeProduct.brand}</h1>
+            <h2 className='product_detail_name'>{activeProduct.name}</h2>
 
             <div className='product_detail_summary'>
                 <p>
@@ -36,6 +38,29 @@ function ProductDetail({ activeProductIndex }: propsTypes) {
                     Designed for long hours of comfort with strong battery backup and smooth wireless connectivity.
                 </p>
             </div>
+
+            <div className='product_detail_purchase'>
+                <div className='product_detail_price_block'>
+                    <span className='product_detail_purchase_label'>Price</span>
+                    <strong>₹{activeProduct.price.toLocaleString()}</strong>
+                </div>
+
+                <button
+                    type='button'
+                    className='product_detail_cart_button'
+                    onClick={() => onAddToCart(activeProduct)}
+                >
+                    Add to Cart
+                </button>
+            </div>
+
+            <button
+                type='button'
+                className='product_detail_view_cart_link'
+                onClick={onOpenCart}
+            >
+                View Cart
+            </button>
 
             <div className='product_details_spec'>
                 <div className='product_detail_specWrapper'>
@@ -93,9 +118,9 @@ function ProductDetail({ activeProductIndex }: propsTypes) {
 
             <hr />
 
-            <p 
-                onClick={handleOnClick} 
-                style={{ marginLeft: 'auto', marginTop: "2em" }} 
+            <p
+                onClick={handleOnClick}
+                style={{ marginLeft: 'auto', marginTop: "2em" }}
                 className='hover-effect arrowed_button'
             >
                 <Link to="/">

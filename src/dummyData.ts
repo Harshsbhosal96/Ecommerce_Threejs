@@ -1,12 +1,6 @@
-interface productDataType {
-    brand: string,
-    name: string,
-    price: number,
-    id: number,
-    description: string
-}
+import { ProductDataType } from './types/store';
 
-const productsData: productDataType[] = [
+const productsData: ProductDataType[] = [
     {
         brand: 'boAt',
         name: 'Airdopes 141',

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import './Style/App.css';
 import { BrowserRouter } from 'react-router-dom';
 import HeaderNav from './components/HeaderNav';
@@ -9,10 +9,48 @@ import GsapAnimations from './utils/gsapAnimations'
 import ProductDetail from './components/ProductDetail';
 import ProductCompactments from './components/ProductCompactments';
 import LoadingOverlay from './components/LoadingOverlay';
-
+import AuthPanel from './components/AuthPanel';
+import CartPanel from './components/CartPanel';
+import { useFirebaseAuth } from './hooks/useFirebaseAuth';
+import { useCart } from './hooks/useCart';
+import productsData from './dummyData';
 
 function App() {
   const [activeProductIndex, setActiveProductIndex] = useState<number>(0);
+  const [isAuthPanelOpen, setIsAuthPanelOpen] = useState<boolean>(false);
+  const [isCartPanelOpen, setIsCartPanelOpen] = useState<boolean>(false);
+
+  const handleBuyNow = () => {
+    addToCart(activeProduct);
+    setIsCartPanelOpen(true);
+  };
+
+  const {
+    user,
+    isLoading,
+    isConfigured,
+    configMessage,
+    authError,
+    logout,
+    resetError,
+    handleSubmit,
+  } = useFirebaseAuth();
+
+  const {
+    cartItems,
+    cartCount,
+    cartTotal,
+    addToCart,
+    increaseQuantity,
+    decreaseQuantity,
+    removeFromCart,
+    clearCart,
+  } = useCart();
+
+  const activeProduct = useMemo(
+    () => productsData[activeProductIndex] ?? productsData[0],
+    [activeProductIndex]
+  );
 
   useEffect(() => {
     const animation = new GsapAnimations();
@@ -33,17 +71,31 @@ function App() {
     }
   }, [])
 
-
-
   return (
     <BrowserRouter>
       <div className="app_wrapper">
         <div className="app_outer">
           <div className="app">
-            <HeaderNav />
+            <HeaderNav
+              userEmail={user?.email ?? ''}
+              isUserLoggedIn={Boolean(user)}
+              cartCount={cartCount}
+              onLoginClick={() => {
+                resetError();
+                setIsAuthPanelOpen(true);
+              }}
+              onLogoutClick={logout}
+              onCartClick={() => setIsCartPanelOpen(true)}
+            />
             <main>
               <Products activeProductIndex={activeProductIndex} />
-              <ProductDetail activeProductIndex={activeProductIndex} />
+              <ProductDetail
+                activeProductIndex={activeProductIndex}
+                activeProduct={activeProduct}
+                onAddToCart={addToCart}
+                onOpenCart={() => setIsCartPanelOpen(true)}
+                onBuyNow={handleBuyNow}
+              />
               <ProductCompactments activeProductIndex={activeProductIndex} />
             </main>
             <Footer />
@@ -54,6 +106,27 @@ function App() {
           </div>
 
           <WebglCanvas />
+          <AuthPanel
+            isOpen={isAuthPanelOpen}
+            isConfigured={isConfigured}
+            isLoading={isLoading}
+            configMessage={configMessage}
+            authError={authError}
+            onSubmit={handleSubmit}
+            onClose={() => setIsAuthPanelOpen(false)}
+            onClearError={resetError}
+          />
+          <CartPanel
+            isOpen={isCartPanelOpen}
+            cartItems={cartItems}
+            cartCount={cartCount}
+            cartTotal={cartTotal}
+            onClose={() => setIsCartPanelOpen(false)}
+            onIncrease={increaseQuantity}
+            onDecrease={decreaseQuantity}
+            onRemove={removeFromCart}
+            onClear={clearCart}
+          />
         </div>
         <div role={'presentation'} className="gradient_background_outer" />
         <div className='credits'>
@@ -61,9 +134,9 @@ function App() {
             <small>
               Designed by
             </small>
-          <a href="#https://www.linkedin.com/in/harshvardhansb/">
-  MonkHarshu
-</a>
+            <a href="#https://www.linkedin.com/in/harshvardhansb/">
+              MonkHarshu
+            </a>
           </span>
           <span className='dev'>
             <span>

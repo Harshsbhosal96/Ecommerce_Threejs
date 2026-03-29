@@ -1,0 +1,115 @@
+.auth_panel_backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 15, 15, 0.35);
+    z-index: 20;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.auth_panel {
+    width: min(100%, 26rem);
+    height: 100%;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(12px);
+    padding: 2rem 1.5rem;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.08);
+    overflow-y: auto;
+}
+
+.auth_panel_header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.auth_panel_header h3 {
+    margin: 0.35rem 0 0;
+    font-size: 1.8rem;
+}
+
+.auth_panel_eyebrow {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #666;
+}
+
+.auth_panel_close,
+.auth_panel_submit {
+    border: none;
+    border-radius: 999px;
+    padding: 0.85rem 1.15rem;
+    cursor: pointer;
+    font-weight: 700;
+    transition: transform 180ms ease, opacity 180ms ease, background-color 180ms ease;
+}
+
+.auth_panel_close {
+    background: #f2f2f2;
+    color: #111;
+}
+
+.auth_panel_submit {
+    background: #111;
+    color: white;
+    margin-top: 0.5rem;
+}
+
+.auth_panel_close:hover,
+.auth_panel_submit:hover {
+    transform: translateY(-1px);
+}
+
+.auth_panel_form {
+    display: grid;
+    gap: 0.8rem;
+}
+
+.auth_panel_form label {
+    font-size: 0.92rem;
+    font-weight: 700;
+}
+
+.auth_panel_form input {
+    width: 100%;
+    border: 1px solid rgba(17, 17, 17, 0.15);
+    border-radius: 14px;
+    padding: 0.95rem 1rem;
+    font-size: 0.95rem;
+    outline: none;
+}
+
+.auth_panel_form input:focus {
+    border-color: #111;
+}
+
+.auth_panel_message {
+    border-radius: 16px;
+    padding: 1rem;
+    margin: 0.5rem 0 0;
+    font-size: 0.92rem;
+    line-height: 1.5;
+}
+
+.auth_panel_message p {
+    margin: 0;
+}
+
+.auth_panel_message small {
+    display: block;
+    margin-top: 0.5rem;
+    color: #555;
+}
+
+.auth_panel_message_config {
+    background: rgba(17, 17, 17, 0.06);
+    color: #111;
+}
+
+.auth_panel_message_error {
+    background: rgba(218, 54, 51, 0.12);
+    color: #9f1f1f;
+}

@@ -2,8 +2,9 @@ header {
     position: relative;
     z-index: 3;
     display: grid;
-    grid-template-columns: 1fr auto;
+    grid-template-columns: 1fr auto auto;
     align-items: center;
+    gap: 1rem;
 }
 
 /* Web */
@@ -12,7 +13,7 @@ header {
     display: none;
 }
 
-.nav_wrapper.web>ul {
+.nav_wrapper.web > ul {
     list-style: none;
     padding: 0;
     display: grid;
@@ -22,12 +23,11 @@ header {
     position: relative;
 }
 
-.nav_wrapper.web>ul li {
+.nav_wrapper.web > ul li {
     font-weight: bold;
-
 }
 
-.nav_wrapper.web>ul li a,
+.nav_wrapper.web > ul li a,
 .nav_list_logo a {
     color: inherit;
     text-decoration: none;
@@ -46,12 +46,64 @@ header {
 .nav_list_logo .icon {
     width: 20px;
     height: 20px;
-    margin-right: .2em;
+    margin-right: 0.2em;
     transition: all 500ms ease-in;
 }
 
 .nav_list_logo:hover .icon {
-    color: #00FF00
+    color: #00ff00;
+}
+
+.nav_actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    grid-column: 2 / 4;
+}
+
+.nav_action_button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.82);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+    color: black;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.nav_cart_badge {
+    min-width: 1.6rem;
+    height: 1.6rem;
+    padding: 0 0.35rem;
+    border-radius: 999px;
+    background: black;
+    color: white;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+}
+
+.nav_account_summary {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.nav_account_email {
+    max-width: 12rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .nav_list_Back {
@@ -65,7 +117,7 @@ header {
     pointer-events: none;
 }
 
-.nav_list_Back>a {
+.nav_list_Back > a {
     margin: 0;
 }
 
@@ -79,9 +131,10 @@ header {
     display: grid;
     grid-template-rows: auto auto auto;
     gap: 5px;
+    justify-self: end;
 }
 
-.hamburger>span {
+.hamburger > span {
     display: inline-block;
     border-radius: 10px;
     background-color: black;
@@ -91,17 +144,17 @@ header {
 
 .hamburgerFirst {
     transform-origin: left center 0;
-    transform: scaleX(.5);
+    transform: scaleX(0.5);
 }
 
 .hamburgerSecond {
     transform-origin: right center 0;
-    transform: scaleX(.5);
+    transform: scaleX(0.5);
 }
 
 .hamburgerThird {
     transform-origin: left center 0;
-    transform: scaleX(.5);
+    transform: scaleX(0.5);
 }
 
 .nav_wrapper.mobile {
@@ -111,15 +164,17 @@ header {
 .nav_wrapper.mobile ul {
     display: flex;
     position: absolute;
-    left: -78px;
+    right: 0;
+    top: calc(100% + 12px);
     transform-origin: center top 0;
     transform: scaleY(0);
-    background-color: rgba(255, 255, 255, 0.515);
+    background-color: rgba(255, 255, 255, 0.92);
     padding: 10px;
     border-radius: 10px;
     color: black;
     flex-direction: column;
     list-style: none;
+    z-index: 5;
 }
 
 .nav_list_link.mobile {
@@ -137,8 +192,25 @@ header {
     border-radius: 10px;
 }
 
+@media only screen and (max-width: 699px) {
+    header {
+        grid-template-columns: 1fr auto;
+    }
 
+    .nav_actions {
+        grid-column: 1 / -1;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
 
+    .nav_account_summary {
+        justify-content: flex-start;
+    }
+
+    .nav_account_email {
+        max-width: 9rem;
+    }
+}
 
 @media only screen and (min-width: 700px) {
     .nav_wrapper.web {
@@ -147,5 +219,9 @@ header {
 
     .nav_wrapper.mobile {
         display: none;
+    }
+
+    .nav_actions {
+        grid-column: auto;
     }
 }
