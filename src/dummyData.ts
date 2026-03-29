@@ -40,7 +40,7 @@ const productsData: productDataType[] = [
         name: 'Nord Buds 2',
         price: 5999,
         id: 5,
-        description: 'Balanced sound with seamless integration for Samsung devices.'
+        description: 'Balanced sound with seamless integration for oneplus devices.'
     }
 ]
 
