@@ -2,8 +2,12 @@
 
 An interactive 3D e-commerce web application built using Three.js to deliver an immersive shopping experience. This project demonstrates how modern web technologies can be combined with 3D graphics to enhance product visualization and user engagement.
 
+
+
 🚀 Features
+
 🧊 3D Product Visualization using Three.js
+
 🛍️ Interactive product display and navigation
 🎯 Smooth camera controls and animations
 ⚡ Real-time rendering with WebGL
