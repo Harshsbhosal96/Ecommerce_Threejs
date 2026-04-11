@@ -18,6 +18,8 @@ An interactive 3D e-commerce web application built using Three.js to deliver an 
 
 🔄 Dynamic scene updates
 
+
+
 🛠️ Tech Stack
 
 Frontend: HTML, CSS, JavaScript
@@ -25,9 +27,7 @@ Frontend: HTML, CSS, JavaScript
 3D Library: Three.js
 
 Rendering: WebGL
-
 Tools: VS Code, Git, GitHub
-
 Three.js is a popular JavaScript library built on WebGL that simplifies creating 3D graphics in the browser.
 
 📂 Project Structure
