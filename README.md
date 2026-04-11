@@ -1,46 +1,71 @@
-# Getting Started with Create React App
+🛒 Ecommerce Three.js
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+An interactive 3D e-commerce web application built using Three.js to deliver an immersive shopping experience. This project demonstrates how modern web technologies can be combined with 3D graphics to enhance product visualization and user engagement.
 
-## Available Scripts
+🚀 Features
+🧊 3D Product Visualization using Three.js
+🛍️ Interactive product display and navigation
+🎯 Smooth camera controls and animations
+⚡ Real-time rendering with WebGL
+💻 Responsive and modern UI
+🔄 Dynamic scene updates
+🛠️ Tech Stack
+Frontend: HTML, CSS, JavaScript
+3D Library: Three.js
+Rendering: WebGL
+Tools: VS Code, Git, GitHub
 
-In the project directory, you can run:
+Three.js is a popular JavaScript library built on WebGL that simplifies creating 3D graphics in the browser.
 
-### `npm start`
+📂 Project Structure
+Ecommerce_Threejs/
+│── index.html
+│── style.css
+│── script.js
+│── assets/
+│   ├── models/
+│   ├── textures/
+│── README.md
+⚙️ Installation & Setup
+Clone the repository
+git clone https://github.com/Harshsbhosal96/Ecommerce_Threejs.git
+Navigate to the project folder
+cd Ecommerce_Threejs
+Open with Live Server (recommended)
+Right-click index.html
+Click "Open with Live Server"
+🎮 How It Works
+Products are rendered as 3D objects in a scene
+Users can:
+Rotate
+Zoom
+Interact with products
+Camera and lighting create a realistic shopping experience
+📸 Screenshots
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+🌟 Future Improvements
+🌐 Backend integration (Node.js / Firebase)
+📦 Product database
+🎨 Improved UI/UX animations
+🤝 Contributing
 
-### `npm run build`
+Contributions are welcome!
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Fork the repo
+Create a new branch
+Make your changes
+Submit a pull request
+📄 License
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+This project is open-source and available under the MIT License.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+👨‍💻 Author
 
-### `npm run eject`
+Harshvardhan Bhosale
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+GitHub: https://github.com/Harshsbhosal96
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+ Hope you guys enjoyed. Happy Coding!
