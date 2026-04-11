@@ -9,19 +9,29 @@ An interactive 3D e-commerce web application built using Three.js to deliver an 
 🧊 3D Product Visualization using Three.js
 
 🛍️ Interactive product display and navigation
+
 🎯 Smooth camera controls and animations
+
 ⚡ Real-time rendering with WebGL
+
 💻 Responsive and modern UI
+
 🔄 Dynamic scene updates
+
 🛠️ Tech Stack
+
 Frontend: HTML, CSS, JavaScript
+
 3D Library: Three.js
+
 Rendering: WebGL
+
 Tools: VS Code, Git, GitHub
 
 Three.js is a popular JavaScript library built on WebGL that simplifies creating 3D graphics in the browser.
 
 📂 Project Structure
+
 Ecommerce_Threejs/
 │── index.html
 │── style.css
