@@ -59,25 +59,22 @@ Ecommerce_Threejs/
 
 ## ⚙️ Installation
 
-- git clone https://github.com/Harshsbhosal96/Ecommerce_Threejs.git
-- cd Ecommerce_Threejs
+git clone https://github.com/Harshsbhosal96/Ecommerce_Threejs.git      
+cd Ecommerce_Threejs
 
 
 🎮 Usage
 
-Rotate products
-
-Zoom in/out
-
-Explore 3D models interactively
+- Rotate products
+- Zoom in/out
+- Explore 3D models interactively
 
 
 
 🌟 Future Improvements
 
-Backend integration
-
-Payment gateway
+- Backend integration
+- Payment gateway
 
 
 
