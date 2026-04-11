@@ -50,8 +50,8 @@ Ecommerce_Threejs/
 
 <p align="center">
   <img src="public/imgs/harsh.png" width="30%" />
-  <img src="assets/screenshots/product.png" width="30%" />
-  <img src="assets/screenshots/view.png" width="30%" />
+  <img src="public/imgs/Monk.png" width="30%" />
+  
 </p>
 
 ---
