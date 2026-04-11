@@ -56,11 +56,11 @@ Ecommerce_Threejs/
 
 ---
 
+
 ## ⚙️ Installation
 
-git clone https://github.com/Harshsbhosal96/Ecommerce_Threejs.git
-
-cd Ecommerce_Threejs
+- git clone https://github.com/Harshsbhosal96/Ecommerce_Threejs.git
+- cd Ecommerce_Threejs
 
 
 🎮 Usage
